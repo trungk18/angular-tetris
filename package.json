@@ -25,6 +25,7 @@
     "@angular/platform-browser": "~10.0.2",
     "@angular/platform-browser-dynamic": "~10.0.2",
     "@angular/router": "~10.0.2",
+    "@angular/service-worker": "~10.0.2",
     "@datorama/akita": "^4.22.0",
     "@ngneat/until-destroy": "^7.3.2",
     "rxjs": "~6.5.4",

@@ -21,6 +21,7 @@ import { TileComponent } from './components/tile/tile.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { GithubComponent } from './components/github/github.component';
 import { TwitterButtonComponent } from './components/twitter-button/twitter-button.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { TwitterButtonComponent } from './components/twitter-button/twitter-butt
     GithubComponent,
     TwitterButtonComponent,
   ],
-  imports: [BrowserModule, AkitaNgDevtools.forRoot()],
+  imports: [BrowserModule, AkitaNgDevtools.forRoot(), ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [],
   bootstrap: [AppComponent],
 })

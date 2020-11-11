@@ -22,6 +22,8 @@ A childhood memory Tetris game built with Angular 10 and Akita.
     - [Animation](#animation)
     - [Web Audio API](#web-audio-api)
     - [Keyboard handling](#keyboard-handling)
+    - [Service Worker](#service-worker)
+      - [What's being cached?](#whats-being-cached)
   - [Features and Roadmap](#features-and-roadmap)
     - [Phase 1 - Angular Tetris basic functionality](#phase-1---angular-tetris-basic-functionality)
     - [Phase 2 - Firebase high score, service worker, more sounds effect, more animation](#phase-2---firebase-high-score-service-worker-more-sounds-effect-more-animation)
@@ -318,6 +320,29 @@ keyDownLeft() {
 
 See more at [containers/angular-tetris/angular-tetris.component.ts][hotkeys-implementation]
 
+### Service Worker
+
+I follow the [Angular service worker guide][service-worker] to enable Angular service worker support in my project created with the Angular CLI. I simply run
+
+```bash
+ng add @angular/pwa
+```
+
+And then update some icons and static files. Then that's all set, I can start to play game without having an internet connection.
+
+
+
+#### What's being cached?
+
+Notice that all of the files the browser needs to render this application are cached. The `ngsw-config.json` boilerplate configuration is set up to cache the specific resources used by the CLI:
+
+- index.html.
+- favicon.ico.
+- Build artifacts (JS and CSS bundles).
+- Anything under assets.
+
+[service-worker]: https://angular.io/guide/service-worker-getting-started
+
 ## Features and Roadmap
 
 ### Phase 1 - Angular Tetris basic functionality
@@ -336,7 +361,7 @@ See more at [containers/angular-tetris/angular-tetris.component.ts][hotkeys-impl
 > TBD
 
 - [ ] Fully mobile support
-- [ ] Offline mode (play without internet connection)
+- [x] Offline mode (play without internet connection)
 - [ ] Firebase high score
 - [ ] More sound effects
 - [ ] More animations

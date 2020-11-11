@@ -82,7 +82,7 @@ export class TetrisService {
   }
 
   reset() {
-    this._store.update(createInitialState(this._pieceFactory));
+    this._store.update(createInitialState(this._pieceFactory, { sound: this._query.raw.sound }));
   }
 
   moveLeft() {
@@ -246,9 +246,9 @@ export class TetrisService {
     let maxPoint = Math.max(points, max);
     LocalStorageService.setMaxPoint(maxPoint);
     this._store.update({
-      ...createInitialState(this._pieceFactory),
+      ...createInitialState(this._pieceFactory, { sound: this._query.raw.sound }),
       max: maxPoint,
-      gameState: GameState.Over,
+      gameState: GameState.Over
     });
   }
 

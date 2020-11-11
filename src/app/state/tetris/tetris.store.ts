@@ -24,7 +24,10 @@ export interface TetrisState {
   max: number;
 }
 
-export function createInitialState(pieceFactory: PieceFactory): TetrisState {
+export function createInitialState(
+  pieceFactory: PieceFactory,
+  currentState: Partial<TetrisState> = { sound: true }
+): TetrisState {
   return {
     matrix: MatrixUtil.getStartBoard(),
     current: null,
@@ -38,7 +41,8 @@ export function createInitialState(pieceFactory: PieceFactory): TetrisState {
     speed: 1,
     gameState: GameState.Loading,
     saved: null,
-    max: LocalStorageService.maxPoint
+    max: LocalStorageService.maxPoint,
+    ...currentState
   };
 }
 
